@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Input from "../../components/Input";
 import Avatar from "../../assets/Avatar.svg";
 import Call from "../../assets/Call.svg";
 import Send from "../../assets/Send.svg";
 import Plus from "../../assets/Plus.svg";
 import { io } from "socket.io-client";
+
 
 const Dashboard = () => {
   const [user, setUser] = useState(
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [message, setMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [socket, setSocket] = useState(null)
+  const messageRef = useRef(null)
  
   console.log(messages, 'messages')
 
@@ -36,6 +38,10 @@ const Dashboard = () => {
       
     })
   }, [socket])
+
+  useEffect (() => {
+    messageRef?.current?.scrollIntoView({behavior: 'smooth'})
+    }, [messages?.messages])
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("user: detail"));
@@ -111,7 +117,7 @@ const Dashboard = () => {
 
   return (
     <div className="w-screen flex">
-      <div className="w-[25%] h-screen bg-secondary">
+      <div className="w-[25%] h-screen bg-secondary overflow-scroll">
         <div className="flex items-center my-8 mx-14">
           <div className="border border-primary p-[2px] rounded-full">
             <img src={Avatar} width={75} height={75} />
@@ -180,6 +186,7 @@ const Dashboard = () => {
             {messages?.messages?.length > 0 ? (
               messages.messages.map(({ message, user: { id } = {} }) => {
                 return (
+                  <>
                   <div
                     className={`max-w-[40%] rounded-b-xl p-4  mb-6 ${
                       id === user?.id
@@ -189,6 +196,8 @@ const Dashboard = () => {
                   >
                     {message}
                   </div>
+                  <div ref={messageRef}></div>
+                  </>
                 );
               })
             ) : (
@@ -225,7 +234,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-      <div className="w-[25%] h-screen bg-light px-8 py-16">
+      <div className="w-[25%] h-screen bg-light px-8 py-16 overflow-scroll">
         <div className="text-primary text-lg">People</div>
         <div>
           {
