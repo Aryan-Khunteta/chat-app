@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import Input from "../../components/Input";
 import Avatar from "../../assets/Avatar.svg";
 import Call from "../../assets/Call.svg";
 import Send from "../../assets/Send.svg";
@@ -21,7 +20,7 @@ const Dashboard = () => {
   console.log(messages, 'messages')
 
   useEffect(() => {
-    setSocket(io('http://localhost:8080'))
+    setSocket(io('https://chat-app-qmaf.onrender.com/'))
   }, [])
 
   useEffect(() => {
@@ -47,7 +46,7 @@ const Dashboard = () => {
     const loggedInUser = JSON.parse(localStorage.getItem("user: detail"));
     const fetchConversations = async () => {
       const res = await fetch(
-        `https://chat-app-qmaf.onrender.com//api/conversations/${loggedInUser?.id}`,
+        `https://chat-app-qmaf.onrender.com/api/conversations/${loggedInUser?.id}`,
         {
           method: "GET",
           headers: {
@@ -65,7 +64,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await fetch(`https://chat-app-qmaf.onrender.com//api/users/${user?.id}`, {
+      const res = await fetch(`https://chat-app-qmaf.onrender.com/api/users/${user?.id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +78,7 @@ const Dashboard = () => {
 
   const fetchMessages = async (conversationId, receiver) => {
     const res = await fetch(
-      `https://chat-app-qmaf.onrender.com//api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`,
+      `https://chat-app-qmaf.onrender.com/api/message/${conversationId}?senderId=${user?.id}&&receiverId=${receiver?.receiverId}`,
       {
         method: "GET",        
         headers: {
@@ -100,7 +99,7 @@ const Dashboard = () => {
         message,
         conversationId: messages?.conversationId
     });
-    const res = await fetch(`https://chat-app-qmaf.onrender.com//api/message`, {
+    const res = await fetch(`https://chat-app-qmaf.onrender.com/api/message`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
