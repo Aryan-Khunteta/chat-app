@@ -1,6 +1,12 @@
-# Chat App 
+# Talk Karoo 
 
-A real-time chat application built with the MERN stack (MongoDB, Express, React, Node.js).
+Talk Karoo is a real-time chat application built with the MERN stack (MongoDB, Express, React, Node.js).
+
+## Link
+Click on the link for demo
+
+[TalkKaroo](https://talkkaroo.netlify.app/)
+
 
 ## Features
 
@@ -15,15 +21,15 @@ A real-time chat application built with the MERN stack (MongoDB, Express, React,
 - **Database:** MongoDB
 - **Real-time:** Socket.IO
 
-## Installation
+# Installation
 
-### Prerequisites
+## Prerequisites
 
 Before running the application, ensure you have the following installed:
 - **Node.js** (version 14 or higher)
 - **MongoDB** (set up a local instance or use MongoDB Atlas)
 
-### Steps
+## Steps
 
 1. Clone the repository:
    ```
@@ -35,39 +41,55 @@ Before running the application, ensure you have the following installed:
 
 - **For the backend:**
 
+Navigate inside the directory:
 ```
 cd server
-npm install express mongoose nodemon bcryptjs cors jsonwebtoken socket.io 
+```
+Install all the necessary backend dependendecies
+```
+npm install
 ```
 
 - **For the frontend:**
 
+Navigate inside the directory:
 ```
 cd client
-npm install react-router-dom socket.io-client
+```
+Install all the necessary frontend dependendecies
+```
+npm install
 ```
 
-3. Create a ```.env ``` file in the ```server ```folder and add the following environment variables:
+3. Create a `.env ` file in the `server`folder and add the following environment variables:
 ```
-MONGO_URI= mongodb+srv://chat_app_admin:admin1234@cluster0.helnt.mongodb.net/?
-retryWrites=true&w=majority&appName=Cluster0
-
-JWT_SECRET= THIS_IS_A_JWT_SECRET_KEY
-
-SOCKET_IO_PORT= 8080
+DB_USERNAME=...
+DB_PASSWORD=...
+JWT_SECRET=...
+PORT=...
 ```
 
 4. Start the development servers:
 
 - **For the backend:**
+
+Navigate inside the directory:
 ```
 cd server
+```
+Now run the server:
+```
 npm run dev
 ```
 
 - **For the frontend:**
+
+Navigate inside the directory:
 ```
 cd client
+```
+Now run the client:
+```
 npm start
 ```
 
@@ -94,28 +116,28 @@ npm start
 - Deploy the application using cloud platforms like AWS or Heroku.
 
 
-## Screenshots
+# Screenshots
 
-1. Sign Up Page:
+### Sign Up Page:
 
 ![Sign Up Page](https://github.com/user-attachments/assets/574a7801-77ba-4707-9ec0-735e19b751a9)
 
 
-2. Sign In Page:
+### Sign In Page:
 
 ![Sign In Page](https://github.com/user-attachments/assets/d9a047c5-b37f-48c3-8433-bf24697f2679)
 
 
-3. Dashboard: 
+### Dashboard: 
 
 ![Dashboard](https://github.com/user-attachments/assets/1d5e5fdd-0420-4946-837d-fe4cfa7dd6dc)
 
 
-4. Chat with Admin 1:
+### Admin Account:
 
-![Chat with Admin 1](https://github.com/user-attachments/assets/8a8d8f19-1459-4a05-828e-19f9532c8434)
+![Admin Account](https://github.com/user-attachments/assets/6b060e0e-fa4e-41e0-ac25-d3a55febf9bd)
 
+### Ak Account:
 
-5. Chat with Admin 2:
+![Ak Account](https://github.com/user-attachments/assets/736778b6-a365-4a2c-8fd8-35105e9517e5)
 
-![Chat with Admin 2](https://github.com/user-attachments/assets/1ea028d0-93d9-4ef1-9fb4-6ef9928516ea)
